@@ -5,17 +5,27 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    // * fix `import *` considered require('react'). import _ from "lodash` will be consider require('lodash').default
+    "esModuleInterop": true, 
+    // * use as above, come together
     "allowSyntheticDefaultImports": true,
+    // strict rule checking for Typescript
     "strict": true,
+    // strict import file name, uppercase and lowercase are different
     "forceConsistentCasingInFileNames": true,
+    // error if not have `break` in switch case
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext", // generate module code, esnext. es6, es2015 is newer
+    // generate module code, esnext. es6, es2015 is newer -> yusing for react typescript
+    "module": "esnext", 
+    // many different types such as native and non-native(import * as) -> solve it
     "moduleResolution": "node",
+    // able to import json file
     "resolveJsonModule": true,
+    // Typescript will produce JS based on Babel -> will isolate module to import
     "isolatedModules": true,
     "noEmit": false,
-    "jsx": "react-jsx" // support jsx in .tsx file ~ mean can write jsx code
+    // will affect to jsx in source map as well -> should not use `react-jsx`
+    "jsx": "react" // support jsx in .tsx file ~ mean can write jsx code
   },
   "include": ["src"]
 }
