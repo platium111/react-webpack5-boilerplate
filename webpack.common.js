@@ -6,15 +6,14 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    filename: "js/[name].bundle.js",
     chunkFilename: "[id].js",
   },
   mode: "development",
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  devtool: "inline-source-map",
   devServer: { contentBase: path.join(__dirname, "src") },
   module: {
     rules: [
@@ -29,10 +28,13 @@ module.exports = {
         use: ["ts-loader"],
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(scss|css)$/,
         use: [
           "style-loader",
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: { sourceMap: true, importLoaders: 1 },
+          },
           { loader: "sass-loader", options: { sourceMap: true } },
         ],
       },
@@ -48,6 +50,7 @@ module.exports = {
     ],
   },
   plugins: [
+    // removed unused folders
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
