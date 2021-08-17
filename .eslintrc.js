@@ -25,7 +25,12 @@ module.exports = {
     "import/no-duplicates": "error",
     "import/no-unresolved": "error", // file in import not found
     "import/named": "error", // check import function/var from modules
-    "prettier/prettier": "error", // check by Prettier on Eslint
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto", // auto have , end of line -> will not trigger errors
+      },
+    ], // check by Prettier on Eslint
     "react/no-typos": "error", // React common errors such as componentWillMount...
     "react/no-unused-state": "error", // prevent unused state fields
     "react/jsx-no-bind": "error", // no .bind() or arrow functions in JSX props
