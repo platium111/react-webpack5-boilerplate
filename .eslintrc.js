@@ -1,16 +1,16 @@
-/* eslint-disable prettier/prettier */
 module.exports = {
   env: {
     browser: true,
     es6: true,
     node: true,
+    jest: true,
   },
   parser: "babel-eslint",
   extends: [
     "eslint:recommended", // * use from `eslint`
     "plugin:react/recommended", // * by install `eslint-plugin-react` -> React rules for Eslint
-    "prettier", // * by install `eslint-plugin-prettier` -> run Prettier on Eslint
-    // "prettier/react", // * install `eslint-config-prettier` -> turn on/off conflict with Prettier
+    "prettier", // * by install `eslint-plugin-prettier` -> turn off Eslint rules if conflict with Prettier
+    // 'prettier/react', // * install `eslint-config-prettier` -> turn on/off conflict with Prettier
   ],
   parserOptions: {
     ecmaVersion: "2017",

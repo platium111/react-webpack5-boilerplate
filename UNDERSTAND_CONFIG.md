@@ -1,12 +1,14 @@
+1. tsconfig
+
 ```json
 {
   "compilerOptions": {
-    "target": "es5", 
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     // * fix `import *` considered require('react'). import _ from "lodash` will be consider require('lodash').default
-    "esModuleInterop": true, 
+    "esModuleInterop": true,
     // * use as above, come together
     "allowSyntheticDefaultImports": true,
     // strict rule checking for Typescript
@@ -16,7 +18,7 @@
     // error if not have `break` in switch case
     "noFallthroughCasesInSwitch": true,
     // generate module code, esnext. es6, es2015 is newer -> yusing for react typescript
-    "module": "esnext", 
+    "module": "esnext",
     // many different types such as native and non-native(import * as) -> solve it
     "moduleResolution": "node",
     // able to import json file
@@ -29,11 +31,23 @@
   },
   "include": ["src"]
 }
-``` 
+```
 
-EsNext using `export const, import`-> the new code 
-  * Most modern browser supports now
-  * if using Typescript with nodejs or react -> using `esnext` -> it will transpile to .mjs
-commonjs using `exports.hello, requre`
-  * using nodejs only -> should use `commonjs` because it's transpiled to js code
+EsNext using `export const, import`-> the new code
 
+- Most modern browser supports now
+- if using Typescript with nodejs or react -> using `esnext` -> it will transpile to .mjs
+  commonjs using `exports.hello, requre`
+- using nodejs only -> should use `commonjs` because it's transpiled to js code
+
+2. prettier
+
+```json
+{
+  "semi": true, // semicolon at the end of line
+  "trailingComma": "all", // comma in object (all is for every line)
+  "singleQuote": false, // using single quote
+  "printWidth": 70,
+  "endOfLine": "auto" // add \n at the end of line
+}
+```
