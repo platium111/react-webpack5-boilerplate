@@ -1,6 +1,6 @@
 # react-webpack5-boilerplate
 
-This project use 
+This project uses  
   * Webpack 5 for dev and prod
   * Eslint
   * Prettier
