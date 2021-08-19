@@ -1,4 +1,3 @@
-const path = require("path");
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
@@ -9,12 +8,13 @@ module.exports = merge(common, {
 
   // very fast compiling, using with live reloading, only is used when install `webpack-dev-server`
   devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, "dist"),
-    open: true,
-    compress: true,
-    hot: true,
-    port: 8080, // match with localhost:8080
+    port: 3000, // use any port suitable for your configuration
+    host: "0.0.0.0", // to accept connections from outside container
+    useLocalIp: true,
+    watchOptions: {
+      aggregateTimeout: 500, // delay before reloading
+      poll: 1000, // enable polling since fsevents are not supported in docker
+    },
   },
 
   plugins: [
