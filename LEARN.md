@@ -6,6 +6,7 @@
 
  - if using docker-compose
   - `docker-compose up`
+  - `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
 
 [pr] Fix mapping port in React webpack 5
   [x] EXPOSE 4000 in Dockerfile
