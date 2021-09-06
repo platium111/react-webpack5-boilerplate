@@ -9,10 +9,16 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install app dependencies
 COPY package.json ./
 COPY package-lock.json ./
-RUN npm install
+
+ARG NODE_ENV="development"
+RUN if [ "$NODE_ENV" = "development" ]; \
+  then npm install; \
+  else npm ci --only=production --ignore-scripts; \
+  fi
 
 # add app
 COPY . ./
-EXPOSE 3000
+ENV PORT 3000
+EXPOSE $PORT
 # start app
 CMD ["npm", "start"] 

@@ -1,7 +1,14 @@
 version: "3.8"
 services:
-  frontend:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+  frontend-react-docker:
     stdin_open: true
+    image: hieptqsocial/react-docker-boiderplate
     build:
       context: .
       dockerfile: Dockerfile
