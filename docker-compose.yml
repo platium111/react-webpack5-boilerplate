@@ -1,13 +1,14 @@
 version: "3.8"
 services:
-  nginx:
-    image: nginx:stable-alpine
-    ports:
-      - "3000:80"
-    volumes:
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-    environment:
-      - PORT=80
+  # [learn] NO NEED to use nginx in local, need change to 80:80 in ports if use for prod
+  #nginx:
+  # image: nginx:stable-alpine
+  #ports:
+  # - "3000:80"
+  #volumes:
+  #  - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+  #environment:
+  #  - PORT=80
 
   frontend-react-docker:
     stdin_open: true
