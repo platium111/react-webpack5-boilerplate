@@ -20,4 +20,5 @@ services:
       - /app/node_modules # need bind mount node_modules if updating libs
     environment:
       - NODE_ENV=development
+      - PORT=3000
     command: sh -c "npm run build && npm start"

@@ -8,7 +8,7 @@ module.exports = merge(common, {
 
   // very fast compiling, using with live reloading, only is used when install `webpack-dev-server`
   devServer: {
-    port: 3000, // use any port suitable for your configuration
+    port: process.env.PORT, // use any port suitable for your configuration
     host: "0.0.0.0", // to accept connections from outside container
     useLocalIp: true,
     watchOptions: {
