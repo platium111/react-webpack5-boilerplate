@@ -1,15 +1,14 @@
 version: "3.8"
 services:
-  nginx:
-    ports:
-      - "8080:8080"
-  frontend-react-docker:
+  frontend-react-docker-prod:
     stdin_open: true
+    container_name: frontend-react-docker-prod
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prod
       args:
         NODE_ENV: production
+    ports:
+      - "3001:80"
     environment:
       - NODE_ENV=production
-    command: npm build:prod

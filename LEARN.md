@@ -6,7 +6,8 @@
 
  - if using docker-compose
   - `docker-compose up`
-  - `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+  - Up dev `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+  - Remove prod `docker-compose -f docker-compose.prod.yml down -v --rmi local` 
 
 [pr] Fix mapping port in React webpack 5
   [x] EXPOSE 4000 in Dockerfile
@@ -17,4 +18,18 @@
 [pr] node-sass cannot install in npm 
   because we refer to node_modules from local to docker -> different system -> need to rebuild
   `npm run postinstall`. We can put it inside `npm start`
+
+
+docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml react-boilderplate-app
+
+access bash
+  `docker exec -it react-webpack5-boilerplate_nginx_1 //bin/sh`
+
+dev: http://localhost:80
+prod: http://localhost:3001
+
+COMMANDS
+kill port
+  `netstat -ano | findstr :3000` -> can get PID
+  `taskkill /PID <PID> /F`
 
