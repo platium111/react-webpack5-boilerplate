@@ -17,6 +17,12 @@
   - when updating code, using build and push
   - in ssh using `docker pull hieptqsocial/react-docker-boiderplate:latest`
   - using `docker stack deploy...` again
+  * Few commands 
+    - Stack `docker stack ls` -> see 2 services for local and prod because we use `docker stack deploy...` for 2 files docker-compose.yml and docker-compose.prod
+    - see services inside stack `docker stack services react-boilerplate-app`
+    - see ps of docker stack `docker stack ps react-boilerplate-app`
+
+
 [pr] issue in not having `image: hieptqsocial/react-docker-boiderplate` inside docker-compose.prod.yml`
   [sol] should update docker.compose.prod file, then git commit and push, in ssh, we need to pull it and using `docker stack deploy...` again. `docker ...build` and `docker...push` cannot solve this issue because its related to docker-compose files. When we use `docker stack deploy -f...`, its related to these files
   -> if we don't change anything in docker, no need to use git commit and git pull inside SSH
