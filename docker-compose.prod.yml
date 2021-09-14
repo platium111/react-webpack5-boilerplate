@@ -2,6 +2,7 @@ version: "3.8"
 services:
   frontend-react-docker-prod:
     stdin_open: true
+    image: hieptqsocial/react-docker-boiderplate
     # container_name: frontend-react-docker-prod
     build:
       context: .
