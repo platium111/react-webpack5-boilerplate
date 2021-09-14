@@ -24,6 +24,7 @@
     // able to import json file
     "resolveJsonModule": true,
     // Typescript will produce JS based on Babel -> will isolate module to import
+    // every code JS/TS files need to export or import something, otherwise get errors
     "isolatedModules": true,
     "noEmit": false,
     // will affect to jsx in source map as well -> should not use `react-jsx`
@@ -51,3 +52,7 @@ EsNext using `export const, import`-> the new code
   "endOfLine": "auto" // add \n at the end of line
 }
 ```
+
+3. .babelrc
+"@babel/preset-typescript" | superset of Javascript help to transpiling Typescript to JS, example `const game: number ="Call of Duties"`
+    
