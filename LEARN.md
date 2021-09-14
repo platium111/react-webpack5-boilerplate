@@ -44,6 +44,9 @@ docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml react-boild
 access bash
   `docker exec -it react-webpack5-boilerplate_nginx_1 //bin/sh`
 
+Jest
+  [pr] need to install `@type/jest` to know describe, it... keywords for unit test
+  [pr] have `"types": ["jest"]` inside tsconfig.json to recognise describe, it...
 **RUNNING**
 dev: http://localhost:80
 prod: http://localhost:3001
