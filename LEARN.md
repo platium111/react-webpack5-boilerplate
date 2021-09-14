@@ -13,10 +13,14 @@
   - `docker-compose -f docker-compose.yml -f docker-compose.prod.yml build`
   - `docker-compose -f docker-compose.yml -f docker-compose.prod.yml push`
   - remove other nginx app
-  - `docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml react-boilerplate-app`
+  - in the code package `docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml react-boilerplate-app`
   - when updating code, using build and push
   - in ssh using `docker pull hieptqsocial/react-docker-boiderplate:latest`
   - using `docker stack deploy...` again
+[pr] issue in not having `image: hieptqsocial/react-docker-boiderplate` inside docker-compose.prod.yml`
+  [sol] should update docker.compose.prod file, then git commit and push, in ssh, we need to pull it and using `docker stack deploy...` again. `docker ...build` and `docker...push` cannot solve this issue because its related to docker-compose files. When we use `docker stack deploy -f...`, its related to these files
+  -> if we don't change anything in docker, no need to use git commit and git pull inside SSH
+
 
 [pr] Fix mapping port in React webpack 5
   [x] EXPOSE 4000 in Dockerfile
