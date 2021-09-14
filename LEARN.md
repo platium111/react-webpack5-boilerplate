@@ -22,6 +22,22 @@
     - see services inside stack `docker stack services react-boilerplate-app`
     - see ps of docker stack `docker stack ps react-boilerplate-app`
 
+2. TDD and testing
+Why unit test
+  - CONFIDENCE when add new feature, when add new feature, old feature are not getting errors -> Reduce time and increate quality because developers think ready to SHIP IT
+  - REDUCE REGRESSION TEST when add new features
+  - NEW ERRORS COMING COVERED BY TEST, to make sure not happen again
+  - FOR REACT
+    + with different props -> is output expected? 
+    + Click button -> event handler works and state change? 
+    + Edge cases for null props, errors -> what is behaviour?
+    + Integration between components -> when one is mounted, what happend with others
+  - TDD is good approach to write unit tests first, then devs will think more of design -> better code
+    
+
+
+
+
 
 [pr] issue in not having `image: hieptqsocial/react-docker-boiderplate` inside docker-compose.prod.yml`
   [sol] should update docker.compose.prod file, then git commit and push, in ssh, we need to pull it and using `docker stack deploy...` again. `docker ...build` and `docker...push` cannot solve this issue because its related to docker-compose files. When we use `docker stack deploy -f...`, its related to these files
@@ -38,12 +54,6 @@
   because we refer to node_modules from local to docker -> different system -> need to rebuild
   `npm run postinstall`. We can put it inside `npm start`
 
-
-docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml react-boilderplate-app
-
-access bash
-  `docker exec -it react-webpack5-boilerplate_nginx_1 //bin/sh`
-
 Jest
   [pr] need to install `@type/jest` to know describe, it... keywords for unit test
   [pr] have `"types": ["jest"]` inside tsconfig.json to recognise describe, it...
@@ -56,3 +66,5 @@ kill port
   `netstat -ano | findstr :3000` -> can get PID
   `taskkill /PID <PID> /F`
 
+access bash in Windoes
+  `docker exec -it react-webpack5-boilerplate_nginx_1 //bin/sh`
