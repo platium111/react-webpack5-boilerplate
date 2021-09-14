@@ -9,6 +9,13 @@ services:
       dockerfile: Dockerfile.prod
       args:
         NODE_ENV: production
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+      update_config:
+        parallelism: 1 #number of container update at a time
+        delay: 15s
     ports:
       - "80:80" # [learn] can use 3001:80 then use localhost:3001
     environment:
