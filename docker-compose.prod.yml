@@ -2,13 +2,13 @@ version: "3.8"
 services:
   frontend-react-docker-prod:
     stdin_open: true
-    container_name: frontend-react-docker-prod
+    # container_name: frontend-react-docker-prod
     build:
       context: .
       dockerfile: Dockerfile.prod
       args:
         NODE_ENV: production
     ports:
-      - "3001:80"
+      - "80:80" # [learn] can use 3001:80 then use localhost:3001
     environment:
       - NODE_ENV=production
