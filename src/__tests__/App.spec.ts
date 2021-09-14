@@ -1,4 +1,4 @@
-import { App } from "../App";
+export {};
 
 describe("My Test Suite", () => {
   it("My Test Case", () => {
